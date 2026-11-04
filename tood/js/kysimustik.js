@@ -1,4 +1,4 @@
-function keeled() {
+function keelevalik() {
     let vastus1 = document.getElementById("vastus1");
     let javascript = document.getElementById("javascript");
     let python = document.getElementById("python");
@@ -24,7 +24,7 @@ function keeled() {
         valik += php.value + " ";
     }
 
-    if (valik == "") {
+    if (valik === "") {
         vastus1.innerHTML = "";
     } else {
         vastus1.innerHTML = "Sinu valitud programmeerimiskeeled: " + valik;
@@ -63,11 +63,11 @@ function meeldibVastus() {
 
     if (jah.checked) {
         valik = "Programmeerimine meeldib!";
-        pilt.src = "Pildid/roomus.png";
+        pilt.src = "pildit/roomus.png";
         pilt.hidden = false;
     } else if (ei.checked) {
         valik = "Programmeerimine ei meeldi.";
-        pilt.src = "Pildid/kurb.png";
+        pilt.src = "pildit/kurb.png";
         pilt.hidden = false;
     }
 
