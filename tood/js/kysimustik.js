@@ -97,7 +97,7 @@ function keeleValik() {
 function saada() {
     let kokkuvote = document.getElementById("kokkuvote");
 
-    let valik = keeled();
+    let valik = keeleValik();
     let arvamus = arvamuseVastus();
     let tunnid = tundideVastus();
     let meeldib = meeldibVastus();
