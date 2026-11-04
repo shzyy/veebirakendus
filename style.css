@@ -1,0 +1,74 @@
+/* Lihtne veebilehe kujundus */
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    margin: 0;
+    color: black;
+}
+
+header {
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #dddddd;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 5px 12px;
+}
+
+nav a {
+    color: blue;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+section {
+    background-color: white;
+    border: 1px solid gray;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#pildigalerii img {
+    width: 180px;
+    margin: 5px;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+footer {
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}

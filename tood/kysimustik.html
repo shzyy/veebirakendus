@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <title>Programmeerimise küsimustik</title>
+  <link rel="stylesheet" href="vormid/kysimustik.css">
+  <script src="js/kysimustik.js" defer></script>
+</head>
+<body>
+
+<main>
+  <h1>Programmeerimise küsimustik</h1>
+  <p>Vasta järgmistele küsimustele.</p>
+
+  <form id="kysimustikForm" action="#">
+    <table>
+      <tr>
+        <th>Küsimus</th>
+        <th>Vastus</th>
+      </tr>
+
+      <tr>
+        <td>Milliseid programmeerimiskeeli sa tead?</td>
+        <td>
+          <input type="checkbox" name="keeled"
+                 id="javascript" value="JavaScript"
+                 onchange="keeled()">
+          <label for="javascript">JavaScript</label><br>
+
+          <input type="checkbox" name="keeled"
+                 id="python" value="Python"
+                 onchange="keeled()">
+          <label for="python">Python</label><br>
+
+          <input type="checkbox" name="keeled"
+                 id="java" value="Java"
+                 onchange="keeled()">
+          <label for="java">Java</label><br>
+
+          <input type="checkbox" name="keeled"
+                 id="csharp" value="C#"
+                 onchange="keeled()">
+          <label for="csharp">C#</label><br>
+
+          <input type="checkbox" name="keeled"
+                 id="php" value="PHP"
+                 onchange="keeled()">
+          <label for="php">PHP</label>
+
+          <p id="vastus1"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="arvamus">
+            Mida arvad programmeerimise õppimisest?
+          </label>
+        </td>
+        <td>
+                    <textarea id="arvamus"
+                              rows="4"
+                              cols="35"
+                              oninput="arvamuseVastus()"></textarea>
+
+          <p id="vastus2"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="tunnid">
+            Mitu tundi nädalas tegeled programmeerimisega?
+          </label>
+        </td>
+        <td>
+          <input type="number"
+                 id="tunnid"
+                 min="0"
+                 max="168"
+                 oninput="tundideVastus()">
+
+          <p id="vastus3"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Kas sulle meeldib programmeerida?</td>
+        <td>
+          <input type="radio"
+                 name="meeldib"
+                 id="jah"
+                 value="Jah"
+                 onclick="meeldibVastus()">
+          <label for="jah">Jah</label>
+
+          <input type="radio"
+                 name="meeldib"
+                 id="ei"
+                 value="Ei"
+                 onclick="meeldibVastus()">
+          <label for="ei">Ei</label>
+
+          <p id="vastus4"></p>
+
+          <img id="smile"
+               src="pildit/roomus.png"
+               alt="Smile"
+               width="60"
+               hidden>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="tooriistad">
+            Milliseid programmeerimisega seotud
+            tööriistu oskad nimetada?
+          </label>
+        </td>
+        <td>
+          <input type="text"
+                 id="tooriistad"
+                 placeholder="nt Visual Studio Code, GitHub"
+                 oninput="tooriistadeVastus()">
+
+          <p id="vastus5"></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <label for="keel">
+            Millist programmeerimiskeelt
+            sooviksid kõige rohkem õppida?
+          </label>
+        </td>
+        <td>
+          <select id="keel" onchange="keeleValik()">
+            <option value="">Vali keel</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="C#">C#</option>
+            <option value="PHP">PHP</option>
+            <option value="C++">C++</option>
+          </select>
+
+          <p id="vastus6"></p>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+      <button type="button" onclick="saada()">Saada</button>
+      <button type="button" onclick="puhasta()">Puhasta</button>
+    </p>
+  </form>
+
+  <h2>Kokkuvõte</h2>
+  <div id="kokkuvote"></div>
+
+  <p>
+    <a href="../tood.html" class="back-link">Tagasi tööde juurde</a>
+  </p>
+</main>
+
+<footer>
+  Evgeni leht &copy; 2026
+</footer>
+
+</body>
+</html>

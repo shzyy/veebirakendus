@@ -1,0 +1,47 @@
+
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    background-color: steelblue;
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    background-color: lightsteelblue;
+    padding: 15px;
+}
+
+nav a {
+    margin: 10px;
+    color: black;
+}
+
+main {
+    background-color: white;
+    width: 920px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+h2 {
+    color: steelblue;
+}
+
+.kirjeldus {
+    background-color: lightyellow;
+    border: 1px solid gray;
+    padding: 15px;
+    margin: 20px;
+}
+
+footer {
+    background-color: steelblue;
+    color: white;
+    padding: 15px;
+}
