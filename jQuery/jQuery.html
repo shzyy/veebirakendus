@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="jQuerystyle.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('#Kuva').hide();
+        //nupu peida vjutamine
+        $('#Peida').click(function(){
+            $('#sisu').hide(500);
+            $(this).hide();
+            $('#Kuva').show();
+        });
+        //nupu Kuva vjutamine
+        $('#Kuva').click(function(){
+            $('#sisu').show(500);
+            $(this).hide();
+            $('#Peida').show();
+        });
+    });
+    function start(){
+        $('#sisu').draggable(); // lohistada hiirega veebilehel
+        $('#pilt').draggable();
+        $('#sisu').bind("drag", xyKoordinat);
+        $('#pilt').bind("drag", xyKoordinat);
+    }
+    function xyKoordinat(event, ui){
+        let koht=ui.offset;
+        $('#vastus').html('x: '+koht.left+ '////y; '+koht.top);
+    }
+    </script>
+<body onload="start()">
+<header>
+    <h1> jQuery kasutamine</h1>
+</header>
+<main>
+    <input type="button" value="--->" id="paremale"
+           onclick="$('#sisu').animate({left: '500px'}, 1000)>
+    $(this).hide();
+    $('#vasakule').show();">
+    <input type="button" value="<---" id="vasakule" style="display: none"
+           onclick="$('#sisu').animate({left: '0px'}, 1000)>
+    $(this).hide();
+    $('#paremale').show();">
+    <input type="button" value="Peida" id="Peida">
+    <input type="button" value="kuva" id="Kuva">
+<section>
+    <h2> jQuery file upload</h2>
+    <div id="sisu"> RenderATL will officially become Node.js Interactive, returning as a dedicated experience inside RenderATL 2026</div>
+</section>
+    <section>
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/efff9530-179d-4c65-8c32-41e9fe4bf472/dmfcmo0-c73fb627-e101-48de-b2d9-2082ae7133d7.png/v1/fill/w_256,h_256/verity_png__by_dantyxsrc_dmfcmo0-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2IiwicGF0aCI6Ii9mL2VmZmY5NTMwLTE3OWQtNGM2NS04YzMyLTQxZTlmZTRiZjQ3Mi9kbWZjbW8wLWM3M2ZiNjI3LWUxMDEtNDhkZS1iMmQ5LTIwODJhZTcxMzNkNy5wbmciLCJ3aWR0aCI6Ijw9MjU2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.mFAaJXBJx-voLG-8graEEdS9OxCFVdBv001GtmkgPT8" id="pilt">
+        <div  id="vastus"
+        </div>
+    </section>
+</main>
+</body>
+</html>
