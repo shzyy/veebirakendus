@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -6,6 +5,29 @@
   <title>Programmeerimise küsimustik</title>
   <link rel="stylesheet" href="vormid/kysimustik.css">
   <script src="js/kysimustik.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <style type="text/css">
+    .viga{color:#F00; padding-left:10px;}
+  </style>
+
+  <script type="text/javascript">
+    $(function(){
+      $('.viga').hide(); //peidame veateate
+      $('.submit').click(function(event){ //käivitame funktsiooni
+        var data=$('.infokast').val();
+        var len=data.length;
+
+        //sisu pikkuse kontroll
+        if(len < 1){
+          $('.viga').show();
+          event.preventDefault();
+        } else {
+          $('.viga').hide();
+        }
+      });
+    });
+  </script>
 </head>
 <body>
 
@@ -59,11 +81,13 @@
           </label>
         </td>
         <td>
-                    <textarea id="arvamus"
-                              rows="4"
-                              cols="35"
-                              oninput="arvamuseVastus()"></textarea>
+          <textarea id="arvamus"
+                    class="infokast"
+                    rows="4"
+                    cols="35"
+                    oninput="arvamuseVastus()"></textarea>
 
+          <span class="viga">Seda välja ei tohi jätta tühjaks</span>
           <p id="vastus2"></p>
         </td>
       </tr>
@@ -153,7 +177,7 @@
     </table>
 
     <p>
-      <button type="button" onclick="saada()">Saada</button>
+      <button type="submit" class="submit">Saada</button>
       <button type="button" onclick="puhasta()">Puhasta</button>
     </p>
   </form>

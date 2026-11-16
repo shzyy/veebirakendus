@@ -72,3 +72,23 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+#sisu{
+    position: relative;
+    left:0;
+    width:200px;
+    border: solid 1px blue;
+    border-radius: 5px;
+}
+h2{
+    position: relative;
+    left: 0;
+}
+#vasakule, #paremale{
+    position: relative;
+    left: 0;
+}
+#pilt{
+    position: relative;
+    left: 0;
+}

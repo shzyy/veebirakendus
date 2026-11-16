@@ -4,8 +4,37 @@
     <meta charset="UTF-8">
     <title>Evgeni veebirakenduste aluste tööd</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('#Kuva').hide();
+            //nupu peida vjutamine
+            $('#Peida').click(function(){
+                $('#sisu').hide(500);
+                $(this).hide();
+                $('#Kuva').show();
+            });
+            //nupu Kuva vjutamine
+            $('#Kuva').click(function(){
+                $('#sisu').show(500);
+                $(this).hide();
+                $('#Peida').show();
+            });
+        });
+        function start(){
+            $('#sisu').draggable(); // lohistada hiirega veebilehel
+            $('#pilt').draggable();
+            $('#sisu').bind("drag", xyKoordinat);
+            $('#pilt').bind("drag", xyKoordinat);
+        }
+        function xyKoordinat(event, ui){
+            let koht=ui.offset;
+            $('#vastus').html('x: '+koht.left+ '////y; '+koht.top);
+        }
+    </script>
 </head>
-<body>
+<body onload="start()">
 <header>
     <h1>
         Evgeni veebirakenduste aluste tööd
@@ -21,25 +50,36 @@
     </ul>
 </nav>
 <main>
+    <input type="button" value="--->" id="paremale"
+           onclick="$('#sisu').animate({left: '500px'}, 1000)>
+    $(this).hide();
+    $('#vasakule').show();">
+    <input type="button" value="<---" id="vasakule" style="display: none"
+           onclick="$('#sisu').animate({left: '0px'}, 1000)>
+    $(this).hide();
+    $('#paremale').show();">
+    <input type="button" value="Peida" id="Peida">
+    <input type="button" value="kuva" id="Kuva">
+
     <section id = "kast1">
         <h2>
             Tere tulemast!
         </h2>
-        <p>
+        <p id="sisu">
             See on index leht mis tehtus 1.veebirakenduste tunnis!
             Palun vajuta teise lingi peale ning konrtrolli, et sisu on täidetud
         </p>
     </section>
+
     <section id = "kast2">
         <h3>
             Põnev pilt
         </h3>
         <div>
-            <img src="Nimetu.png" alt="See on ise tehtud pilt">
+            <img src="Nimetu.png" alt="See on ise tehtud pilt" id="pilt">
         </div>
-
+        <div id="vastus"></div>
     </section>
-
 </main>
 <!--jalus-->
 <footer>
