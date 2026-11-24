@@ -1,3 +1,5 @@
+
+// 1. Checkbox
 function keelevalik() {
     let vastus1 = document.getElementById("vastus1");
     let javascript = document.getElementById("javascript");
@@ -9,22 +11,22 @@ function keelevalik() {
     let valik = "";
 
     if (javascript.checked) {
-        valik += javascript.value + " ";
+        valik += "JavaScript ";
     }
     if (python.checked) {
-        valik += python.value + " ";
+        valik += "Python ";
     }
     if (java.checked) {
-        valik += java.value + " ";
+        valik += "Java ";
     }
     if (csharp.checked) {
-        valik += csharp.value + " ";
+        valik += "C# ";
     }
     if (php.checked) {
-        valik += php.value + " ";
+        valik += "PHP ";
     }
 
-    if (valik === "") {
+    if (valik == "") {
         vastus1.innerHTML = "";
     } else {
         vastus1.innerHTML = "Sinu valitud programmeerimiskeeled: " + valik;
@@ -34,25 +36,38 @@ function keelevalik() {
 }
 
 
+// 2. Textarea
 function arvamuseVastus() {
     let vastus2 = document.getElementById("vastus2");
-    let arvamus = document.getElementById("arvamus");
+    let arvamus = document.getElementById("arvamus").value;
 
-    vastus2.innerHTML = "Sinu arvamus: " + arvamus.value;
+    if (arvamus == "") {
+        vastus2.textContent = "";
+    } else {
+        vastus2.textContent = "Sinu arvamus: " + arvamus;
+    }
 
-    return arvamus.value;
+    return arvamus;
 }
 
+
+// 3. Number
 function tundideVastus() {
     let vastus3 = document.getElementById("vastus3");
-    let tunnid = document.getElementById("tunnid");
+    let tunnid = document.getElementById("tunnid").value;
 
-    vastus3.innerHTML = "Tegeled programmeerimisega " +
-        tunnid.value + " tundi nädalas.";
+    if (tunnid == "") {
+        vastus3.innerHTML = "";
+    } else {
+        vastus3.innerHTML = "Tegeled programmeerimisega " +
+            tunnid + " tundi nädalas.";
+    }
 
-    return tunnid.value;
+    return tunnid;
 }
 
+
+// 4. Radio
 function meeldibVastus() {
     let vastus4 = document.getElementById("vastus4");
     let jah = document.getElementById("jah");
@@ -69,6 +84,8 @@ function meeldibVastus() {
         valik = "Programmeerimine ei meeldi.";
         pilt.src = "pildit/kurb.png";
         pilt.hidden = false;
+    } else {
+        pilt.hidden = true;
     }
 
     vastus4.innerHTML = valik;
@@ -76,43 +93,59 @@ function meeldibVastus() {
     return valik;
 }
 
+
+// 5. Text
 function tooriistadeVastus() {
     let vastus5 = document.getElementById("vastus5");
-    let tooriistad = document.getElementById("tooriistad");
+    let tooriistad = document.getElementById("tooriistad").value;
 
-    vastus5.innerHTML = "Sinu nimetatud tööriistad: " + tooriistad.value;
+    if (tooriistad == "") {
+        vastus5.textContent = "";
+    } else {
+        vastus5.textContent = "Sinu nimetatud tööriistad: " + tooriistad;
+    }
 
-    return tooriistad.value;
+    return tooriistad;
 }
 
+
+// 6. Select
 function keeleValik() {
     let vastus6 = document.getElementById("vastus6");
-    let keel = document.getElementById("keel");
+    let keel = document.getElementById("keel").value;
 
-    vastus6.innerHTML = "Sinu valik: " + keel.value;
+    if (keel == "") {
+        vastus6.innerHTML = "";
+    } else {
+        vastus6.innerHTML = "Sinu valik: " + keel;
+    }
 
-    return keel.value;
+    return keel;
 }
 
+
+// Kõik vastused
 function saada() {
     let kokkuvote = document.getElementById("kokkuvote");
 
-    let valik = keeleValik();
+    let keeled = keelevalik();
     let arvamus = arvamuseVastus();
     let tunnid = tundideVastus();
     let meeldib = meeldibVastus();
     let tooriistad = tooriistadeVastus();
     let keel = keeleValik();
 
-    kokkuvote.innerHTML =
-        "Sinu valitud programmeerimiskeeled: " + valik + "<br>" +
-        "Sinu arvamus: " + arvamus + "<br>" +
-        "Tegeled programmeerimisega " + tunnid + " tundi nädalas.<br>" +
-        meeldib + "<br>" +
-        "Sinu nimetatud tööriistad: " + tooriistad + "<br>" +
+    kokkuvote.textContent =
+        "Sinu valitud programmeerimiskeeled: " + keeled + "\n" +
+        "Sinu arvamus: " + arvamus + "\n" +
+        "Tegeled programmeerimisega " + tunnid + " tundi nädalas.\n" +
+        meeldib + "\n" +
+        "Sinu nimetatud tööriistad: " + tooriistad + "\n" +
         "Sinu valik: " + keel;
 }
 
+
+// Puhastamine
 function puhasta() {
     document.getElementById("kysimustikForm").reset();
 
@@ -122,7 +155,7 @@ function puhasta() {
     document.getElementById("vastus4").innerHTML = "";
     document.getElementById("vastus5").innerHTML = "";
     document.getElementById("vastus6").innerHTML = "";
-    document.getElementById("kokkuvote").innerHTML = "";
 
+    document.getElementById("kokkuvote").innerHTML = "";
     document.getElementById("smile").hidden = true;
 }
