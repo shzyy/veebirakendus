@@ -44,7 +44,11 @@
 
                     <input type="checkbox" id="php" name="valik"
                            value="PHP" onchange="keelevalik()">
-                    <label for="php">PHP</label>
+                    <label for="php">PHP</label><br>
+
+                    <input type="checkbox" id="html" name="valik"
+                           value="HTML" onchange="keelevalik()">
+                    <label for="html">HTML</label>
 
                     <p id="vastus1"></p>
                     <p id="viga1" class="viga">Vali vähemalt üks keel!</p>
@@ -96,11 +100,15 @@
                            value="Ei" onclick="meeldibVastus()">
                     <label for="ei">Ei</label>
 
+                    <input type="radio" name="meeldib" id="vastamata"
+                           value="vastamata" onclick="meeldibVastus()">
+                    <label for="vastamata">Vastamata</label>
+
                     <p id="vastus4"></p>
                     <img id="smile" src="pildit/roomus.png"
                          alt="Smile" width="60" hidden>
 
-                    <p id="viga4" class="viga">Vali Jah või Ei!</p>
+                    <p id="viga4" class="viga">Vali Jah, Ei või Vastamata</p>
                 </td>
             </tr>
 

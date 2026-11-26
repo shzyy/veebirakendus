@@ -7,6 +7,7 @@ function keelevalik() {
     let java = document.getElementById("java");
     let csharp = document.getElementById("csharp");
     let php = document.getElementById("php");
+    let html = document.getElementById("html");
 
     let valik = "";
 
@@ -24,6 +25,9 @@ function keelevalik() {
     }
     if (php.checked) {
         valik += "PHP ";
+    }
+    if (html.checked) {
+        valik += "HTML ";
     }
 
     if (valik == "") {
@@ -72,6 +76,7 @@ function meeldibVastus() {
     let vastus4 = document.getElementById("vastus4");
     let jah = document.getElementById("jah");
     let ei = document.getElementById("ei");
+    let vastamata = document.getElementById("vastamata");
     let pilt = document.getElementById("smile");
 
     let valik = "";
@@ -84,6 +89,9 @@ function meeldibVastus() {
         valik = "Programmeerimine ei meeldi.";
         pilt.src = "pildit/kurb.png";
         pilt.hidden = false;
+    } else if (vastamata.checked) {
+        valik = "vastamata.";
+        pilt.hidden = true;
     } else {
         pilt.hidden = true;
     }
